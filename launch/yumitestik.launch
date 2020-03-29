@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="chain_start" default="yumi_base_link" />
+  <arg name="chain_end"   default="yumi_link_7_r" />
+  <arg name="timeout" default="0.005" />
+
+  <param name="robot_description" textfile="$(find trac_ik_test)/urdf/yumi.urdf" />
+
+
+  <node name="yumi_trac_ik_test" pkg="trac_ik_test" type="yumi_trac_ik_test" output="screen">  
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+  </node>
+
+
+</launch>

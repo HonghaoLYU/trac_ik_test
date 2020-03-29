@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="chain_start" default="link0" />
+  <arg name="chain_end"   default="link3" />
+  <arg name="timeout" default="0.005" />
+
+  <param name="robot_description" textfile="$(find trac_ik_test)/urdf/robot.urdf" />
+
+
+  <node name="trac_ik_test" pkg="trac_ik_test" type="trac_ik_test" output="screen">  
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+  </node>
+
+
+</launch>
